@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      server-addr: 192.168.186.1:8848
+      discovery:
+        namespace: e9f120bf-dae1-4a61-b798-eeeae3b0a543
+      config:
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: configuration-files
+        file-extension: yaml
+
+dubbo:
+  scan:
+    base-packages: com.mycompany.service.impl
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 20881
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}
+    parameters:
+      namespace: ${spring.cloud.nacos.discovery.namespace}

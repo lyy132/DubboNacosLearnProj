@@ -1,0 +1,21 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /consumer
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      server-addr: 192.168.186.1:8848
+      discovery:
+        namespace: e9f120bf-dae1-4a61-b798-eeeae3b0a543
+dubbo:
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 20882
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}
+    parameters:
+      namespace: ${spring.cloud.nacos.discovery.namespace}
