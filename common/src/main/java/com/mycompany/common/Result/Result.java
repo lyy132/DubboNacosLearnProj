@@ -15,6 +15,10 @@ public class Result<T> {
         return new Result(200,"success",data);
     }
 
+    public static <T> Result<T> fail() {
+        return new Result(500,"fail, internal error",null);
+    }
+
     public int getCode() {
         return code;
     }
