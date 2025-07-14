@@ -2,6 +2,7 @@ package com.mycompany.common.Result;
 
 public class Result<T> {
     // 新加入一行注释
+    // 又加入一行注释
     private int code;
     private String status;
     private T data;
